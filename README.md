@@ -1,5 +1,5 @@
 # errorBuddy
-This website is created to read error solutions from other people and post your query
+This website is created to read error solutions from other people and logged in user can post as well as update their query.
 
 ## Acknowledgements
 
