@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import { store } from './Redux/store.js'
 import  axios  from "axios";
 
-axios.defaults.baseURL=`${process.env.REACT_APP_API_URL}`;
+// axios.defaults.baseURL=`${process.env.REACT_APP_API_URL}`;
+axios.defaults.baseURL= "https://mighty-wildwood-65043.herokuapp.com";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
