@@ -9,9 +9,7 @@ import { Provider } from "react-redux";
 import { store } from './Redux/store.js'
 import  axios  from "axios";
 
-// axios.defaults.baseURL="https://cors-anywhere.herokuapp.com/http://localhost:7000";
-axios.defaults.baseURL="http://localhost:7000";
-
+axios.defaults.baseURL=`${process.env.REACT_APP_API_URL}`;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
