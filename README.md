@@ -1,4 +1,5 @@
 # errorBuddy
+
 This website is created to read error solutions from other people and logged in user can post as well as update their query.
 
 ## Acknowledgements
@@ -39,18 +40,23 @@ This website is created to read error solutions from other people and logged in 
 ## Screenshots
 
 **Landing Page**
+
 ![App Screenshot](https://github.com/deepRaj06/errorBuddy/blob/main/Screenshots/Screenshot%20(131).png?raw=true)
 
 **SignUp Page**
+
 ![App Screenshot](https://github.com/deepRaj06/errorBuddy/blob/main/Screenshots/Screenshot%20(132).png?raw=true)
 
 **Login Page**
+
 ![App Screenshot](https://github.com/deepRaj06/errorBuddy/blob/main/Screenshots/Screenshot%20(133).png?raw=true)
 
 **Posts Page**
+
 ![App Screenshot](https://github.com/deepRaj06/errorBuddy/blob/main/Screenshots/Screenshot%20(134).png?raw=true)
 
 ## Steps to run this Clone:
+
 - Create a new folder on your system.
 - Open the same folder with VS Code.
 - In terminal, type command: git clone https://github.com/deepRaj06/errorBuddy.git
