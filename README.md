@@ -4,7 +4,7 @@ This website is created to read error solutions from other people and logged in 
 
 ## Acknowledgements
 
-**Netlify link of our project**: https://error-buddy.netlify.app/
+**Netlify link of project**: https://error-buddy.netlify.app/
 
 ## Author
 
