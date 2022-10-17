@@ -29,7 +29,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createPosts, getPosts } from "../../Redux/posts/action";
 
 const Navbar = (props) => {
-  // console.log(props);
+  console.log(props);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -38,7 +38,7 @@ const Navbar = (props) => {
   const toast = useToast();
 
   const [postDetails, setPostDetails] = useState({
-    quesError: ""
+    quesError: "",
   });
 
   const handleChange = (e) => {
@@ -49,7 +49,7 @@ const Navbar = (props) => {
   const handleButton = (e) => {
     e.preventDefault();
     if (postDetails) {
-      if(postDetails.quesError === ''){
+      if (postDetails.quesError === "") {
         toast({
           position: "top",
           title: "Oops you forget to input the question",
@@ -57,7 +57,7 @@ const Navbar = (props) => {
           duration: 4000,
           isClosable: true,
         });
-      }else{
+      } else {
         const payload = {
           quesFile: postDetails.quesFile,
           quesError: postDetails.quesError,
@@ -86,7 +86,7 @@ const Navbar = (props) => {
       pos="fixed"
       mb="1rem"
       bgColor="white"
-      zIndex='2'
+      zIndex="2"
     >
       <Box
         w="96%"
@@ -102,12 +102,12 @@ const Navbar = (props) => {
             <Flex p="1">
               {props.show === false ? (
                 <>
-              <Routerlink to="/">
-                <Button colorScheme="blue" mr="1rem">
-                  Logout
-                </Button>
-              </Routerlink>
-              </>
+                  <Routerlink to="/">
+                    <Button colorScheme="blue" mr="1rem">
+                      Logout
+                    </Button>
+                  </Routerlink>
+                </>
               ) : (
                 <>
                   <Routerlink to="/signup">
@@ -126,90 +126,101 @@ const Navbar = (props) => {
               props.handleButton.name === "handleBtn" ? (
                 <Button onClick={props.handleButton}>Post Error</Button>
               ) : (
-                <Button onClick={onOpen}>Post Error</Button>
-              )}
-              <Modal
-                initialFocusRef={initialRef}
-                finalFocusRef={finalRef}
-                isOpen={isOpen}
-                onClose={onClose}
-              >
-                <ModalOverlay />
-                <ModalContent>
-                  <ModalHeader>Post Error</ModalHeader>
-                  <ModalCloseButton />
-                  <ModalBody pb={6}>
+                <>
+                  <Button onClick={onOpen}>Post Error</Button>
+                  <Modal
+                    initialFocusRef={initialRef}
+                    finalFocusRef={finalRef}
+                    isOpen={isOpen}
+                    onClose={onClose}
+                  >
+                    <ModalOverlay />
+                    <ModalContent>
+                      <ModalHeader>Post Error</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody pb={6}>
+                        <FormControl mt={4}>
+                          <FormLabel>Error Question Image</FormLabel>
+                          <FileBase64
+                            type="file"
+                            name="quesFile"
+                            // onChange={handleChange}
+                            multiple={false}
+                            onDone={({ base64 }) =>
+                              setPostDetails({
+                                ...postDetails,
+                                quesFile: base64,
+                              })
+                            }
+                          />
+                        </FormControl>
+                        {/* </form> */}
+                        <FormControl mt={4}>
+                          <FormLabel>Error Question</FormLabel>
+                          <Textarea
+                            isRequired
+                            type="text"
+                            name="quesError"
+                            onChange={handleChange}
+                            ref={initialRef}
+                            placeholder="Error Question"
+                          />
+                        </FormControl>
 
-                    <FormControl mt={4}>
-                      <FormLabel>Error Question Image</FormLabel>
-                      <FileBase64
-                        type="file"
-                        name="quesFile"
-                        // onChange={handleChange}
-                        multiple={false}
-                        onDone={({ base64 }) =>
-                          setPostDetails({ ...postDetails, quesFile: base64 })
-                        }
-                      />
-                    </FormControl>
-                    {/* </form> */}
-                    <FormControl mt={4}>
-                      <FormLabel>Error Question</FormLabel>
-                      <Textarea
-                        isRequired
-                        type="text"
-                        name="quesError"
-                        onChange={handleChange}
-                        ref={initialRef}
-                        placeholder="Error Question"
-                      />
-                    </FormControl>
+                        <FormControl mt={4}>
+                          <FormLabel>Error Answer</FormLabel>
+                          <Textarea
+                            type="text"
+                            name="ansError"
+                            onChange={handleChange}
+                            placeholder="Error Answer"
+                          />
+                        </FormControl>
 
-                    <FormControl mt={4}>
-                      <FormLabel>Error Answer</FormLabel>
-                      <Textarea
-                        type="text"
-                        name="ansError"
-                        onChange={handleChange}
-                        placeholder="Error Answer"
-                      />
-                    </FormControl>
+                        <FormControl mt={4}>
+                          <FormLabel>Error Answer Image</FormLabel>
+                          <FileBase64
+                            type="file"
+                            name="ansFile"
+                            // onChange={handleChange}
+                            multiple={false}
+                            onDone={({ base64 }) =>
+                              setPostDetails({
+                                ...postDetails,
+                                ansFile: base64,
+                              })
+                            }
+                          />
+                        </FormControl>
 
-                    <FormControl mt={4}>
-                      <FormLabel>Error Answer Image</FormLabel>
-                      <FileBase64
-                        type="file"
-                        name="ansFile"
-                        // onChange={handleChange}
-                        multiple={false}
-                        onDone={({ base64 }) =>
-                          setPostDetails({ ...postDetails, ansFile: base64 })
-                        }
-                      />
-                    </FormControl>
-
-                    {/* <FormControl mt={4} method="post" enctype="multipart/form-data">
+                        {/* <FormControl mt={4} method="post" enctype="multipart/form-data">
                       <FormLabel>Error Answer Image</FormLabel>
                       <Input name='ansFile' onChange={handleChange} type="file" placeholder="Error Question Image" />
                     </FormControl> */}
 
-                    {/* <FormControl mt={4}>
+                        {/* <FormControl mt={4}>
                       <FormLabel>Error Answer Links</FormLabel>
                       <Input placeholder="Error Answer Links" />
                     </FormControl> */}
-                  </ModalBody>
+                      </ModalBody>
 
-                  <ModalFooter>
-                    {/* <Flex w='30%' justifyContent='space-between' border='1px solid black'> */}
+                      <ModalFooter>
+                        {/* <Flex w='30%' justifyContent='space-between' border='1px solid black'> */}
 
-                    <Button onClick={handleButton} colorScheme="blue" mr={3}>
-                      Save
-                    </Button>
-                    <Button onClick={onClose}>Cancel</Button>
-                    {/* </Flex> */}
-                  </ModalFooter>
-                </ModalContent>
-              </Modal>
+                        <Button
+                          onClick={handleButton}
+                          colorScheme="blue"
+                          mr={3}
+                        >
+                          Save
+                        </Button>
+                        <Button onClick={onClose}>Cancel</Button>
+                        {/* </Flex> */}
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+                </>
+              )}
             </Flex>
           </Box>
         </Flex>
