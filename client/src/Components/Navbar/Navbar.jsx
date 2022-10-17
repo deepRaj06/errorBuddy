@@ -123,7 +123,8 @@ const Navbar = (props) => {
                 </>
               )}
               {props.handleButton.name &&
-              props.handleButton.name === "handleBtn" ? (
+              // props.handleButton.name === "handleBtn" ? (
+              props.handleButton.name === "handleButton" ? (
                 <Button onClick={props.handleButton}>Post Error</Button>
               ) : (
                 <>
