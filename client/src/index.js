@@ -10,7 +10,7 @@ import { store } from './Redux/store.js'
 import  axios  from "axios";
 
 // axios.defaults.baseURL=`${process.env.REACT_APP_API_URL}`;
-axios.defaults.baseURL= "https://mighty-wildwood-65043.herokuapp.com";
+axios.defaults.baseURL= "https://combative-lamb-tux.cyclic.app";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
